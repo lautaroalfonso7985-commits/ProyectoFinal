@@ -80,8 +80,8 @@ a {
 }
 
 .brand__icon {
-  width: 44px;
-  height: 44px;
+  width: 57px;
+  height: 57px;
   flex-shrink: 0;
 }
 
@@ -1255,10 +1255,14 @@ a {
 .plan__head {
   max-width: 680px;
   margin-bottom: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .plan__tabs-wrap {
   max-width: 860px;
+  margin: 0 auto;
 }
 
 /* radios ocultos a la vista pero accesibles con teclado */
@@ -1273,7 +1277,9 @@ a {
 .plan__tabs {
   display: flex;
   gap: 6px;
+  justify-content: center;
 }
+
 
 .plan__tabs label {
   padding: 13px 28px;
@@ -1778,3 +1784,143 @@ a {
     height: 30px;
   }
 }
+
+/* PROYECTOS INSTITUCIONALES */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  margin-top: 40px;
+}
+/* TARJETA */
+.project-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+}
+
+/* CARRUSEL */
+.project-carousel {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+/* Ocultamos los botones radio */
+.project-carousel input {
+  display: none;
+}
+
+/* CONTENEDOR DE IMÁGENES */
+.project-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* CADA IMAGEN */
+.project-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+/* IMAGEN */
+.project-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* ZOOM AL PASAR EL MOUSE */
+.project-slide:hover img {
+  transform: scale(1.12);
+}
+
+/* MOSTRAR IMAGEN SELECCIONADA */
+#cafe1:checked ~ .project-slides .slide-cafe1,
+#cafe2:checked ~ .project-slides .slide-cafe2,
+#cafe3:checked ~ .project-slides .slide-cafe3,
+#informatica1:checked ~ .project-slides .slide-informatica1,
+#informatica2:checked ~ .project-slides .slide-informatica2,
+#informatica3:checked ~ .project-slides .slide-informatica3,
+#talleres1:checked ~ .project-slides .slide-talleres1,
+#talleres2:checked ~ .project-slides .slide-talleres2,
+#talleres3:checked ~ .project-slides .slide-talleres3,
+#actividades1:checked ~ .project-slides .slide-actividades1,
+#actividades2:checked ~ .project-slides .slide-actividades2,
+#actividades3:checked ~ .project-slides .slide-actividades3 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* CONTROLES DEL CARRUSEL */
+.project-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.project-controls label {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.project-controls label:hover {
+  background: #ffffff;
+  transform: scale(1.15);
+}
+
+/* TEXTO */
+
+.project-content {
+  padding: 25px;
+}
+
+.project-content h3 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.project-content p {
+  margin: 0;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-carousel {
+    height: 250px;
+  }
+}
+```
